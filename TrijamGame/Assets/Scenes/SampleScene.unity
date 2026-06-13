@@ -211,8 +211,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 12
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -237,7 +237,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.072795175, y: -0, z: -0, w: 0.99734694}
-  m_LocalPosition: {x: 0, y: 4.14, z: -18.16}
+  m_LocalPosition: {x: 0, y: 10, z: -39.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -425,6 +425,7 @@ GameObject:
   - component: {fileID: 640797132}
   - component: {fileID: 640797131}
   - component: {fileID: 640797130}
+  - component: {fileID: 640797134}
   - component: {fileID: 640797129}
   - component: {fileID: 640797128}
   - component: {fileID: 640797127}
@@ -498,7 +499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a96d61c564b3f274fa5a4a9bfc7358e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  moveSpeed: 7
+  moveSpeed: 9
   jumpStartSpeed: 16
   maxJumpCount: 1
   riseGravityMultiplier: 3
@@ -615,6 +616,20 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &640797134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640797126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e76a1b445b910e4e96d21e6d48386f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerBounds
+  targetCamera: {fileID: 330585545}
+  horizontalPadding: 0.5
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
