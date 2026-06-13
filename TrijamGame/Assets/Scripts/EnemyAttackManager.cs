@@ -7,6 +7,7 @@ public class EnemyAttackManager : MonoBehaviour
     [SerializeField] private EnemySphereCore sphereCore;
     [SerializeField] private EnemySphereMovement sphereMovement;
     [SerializeField] private EnemyChargeAttack chargeAttack;
+    [SerializeField] private EnemyHorizontalSplitAttack horizontalSplitAttack;
 
     [Header("Attack Timing")]
     [SerializeField] private float startDelay = 1.5f;
@@ -20,7 +21,7 @@ public class EnemyAttackManager : MonoBehaviour
     [Header("Available Attacks")]
     [SerializeField] private bool useSplitAttack = true;
     [SerializeField] private bool useChargeAttack = true;
-    [SerializeField] private bool useAttackThree = false;
+    [SerializeField] private bool useHorizontalSplitAttack = true;
 
     [Header("Debug")]
     [SerializeField] private bool automaticAttacks = true;
@@ -42,6 +43,11 @@ public class EnemyAttackManager : MonoBehaviour
         if (chargeAttack == null)
         {
             chargeAttack = GetComponent<EnemyChargeAttack>();
+        }
+
+        if (horizontalSplitAttack == null)
+        {
+            horizontalSplitAttack = GetComponent<EnemyHorizontalSplitAttack>();
         }
     }
 
@@ -83,7 +89,7 @@ public class EnemyAttackManager : MonoBehaviour
         }
         else if (selectedAttack == 3)
         {
-            yield return StartCoroutine(MoveThenExecuteAttackThree());
+            yield return StartCoroutine(MoveThenExecuteHorizontalSplitAttack());
         }
 
         isRunningAttack = false;
@@ -131,14 +137,14 @@ public class EnemyAttackManager : MonoBehaviour
         yield return StartCoroutine(ExecuteChargeAttack());
     }
 
-    private IEnumerator MoveThenExecuteAttackThree()
+    private IEnumerator MoveThenExecuteHorizontalSplitAttack()
     {
         if (sphereMovement != null)
         {
             yield return StartCoroutine(sphereMovement.MoveToRandomPoint());
         }
 
-        yield return StartCoroutine(ExecuteAttackThree());
+        yield return StartCoroutine(ExecuteHorizontalSplitAttack());
     }
 
     private int ChooseRandomAttack()
@@ -155,7 +161,7 @@ public class EnemyAttackManager : MonoBehaviour
             availableAttackCount++;
         }
 
-        if (useAttackThree)
+        if (useHorizontalSplitAttack)
         {
             availableAttackCount++;
         }
@@ -188,7 +194,7 @@ public class EnemyAttackManager : MonoBehaviour
             currentIndex++;
         }
 
-        if (useAttackThree)
+        if (useHorizontalSplitAttack)
         {
             if (currentIndex == randomIndex)
             {
@@ -213,10 +219,10 @@ public class EnemyAttackManager : MonoBehaviour
         yield return StartCoroutine(chargeAttack.ExecuteChargeAttack());
     }
 
-    private IEnumerator ExecuteAttackThree()
+    private IEnumerator ExecuteHorizontalSplitAttack()
     {
-        Debug.Log("Attack Three ainda não foi programado.");
+        if (horizontalSplitAttack == null) yield break;
 
-        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(horizontalSplitAttack.ExecuteHorizontalSplitAttack());
     }
 }

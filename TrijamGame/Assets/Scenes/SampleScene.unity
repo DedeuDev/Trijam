@@ -1230,6 +1230,7 @@ GameObject:
   - component: {fileID: 919132149256020242}
   - component: {fileID: 919132149256020243}
   - component: {fileID: 919132149256020244}
+  - component: {fileID: 919132149256020246}
   m_Layer: 0
   m_Name: Earth
   m_TagString: Untagged
@@ -1282,6 +1283,7 @@ MonoBehaviour:
   sphereCore: {fileID: 919132149256020242}
   sphereMovement: {fileID: 919132149256020244}
   chargeAttack: {fileID: 919132149256020245}
+  horizontalSplitAttack: {fileID: 919132149256020246}
   startDelay: 1.5
   timeBetweenAttacks: 0.5
   splitAttackCanMove: 1
@@ -1289,7 +1291,7 @@ MonoBehaviour:
   waitForMovementAfterSplitAttack: 1
   useSplitAttack: 1
   useChargeAttack: 1
-  useAttackThree: 0
+  useHorizontalSplitAttack: 1
   automaticAttacks: 1
 --- !u!114 &919132149256020244
 MonoBehaviour:
@@ -1337,6 +1339,51 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   warningSound: {fileID: 0}
   chargeSound: {fileID: 0}
+  allowKeyboardTest: 0
+--- !u!114 &919132149256020246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149256020241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 519b50fea6d6c9a44884bfc163c5d2d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHorizontalSplitAttack
+  sphereCore: {fileID: 919132149256020242}
+  topHalf: {fileID: 8632055958974581414}
+  bottomHalf: {fileID: 5127251164947155415}
+  core: {fileID: 9179017853251622775}
+  targetCamera: {fileID: 330585545}
+  warningDuration: 0.5
+  minVerticalOpenDistance: 0.8
+  maxVerticalOpenDistance: 10
+  openSpeed: 8
+  closeSpeed: 10
+  horizontalSpeed: 12
+  returnSpeed: 14
+  edgePadding: 0.8
+  verticalEdgePadding: 0.2
+  timeAfterAttack: 0.4
+  animateCoreDuringAttack: 1
+  coreSpinSpeed: 180
+  coreSpinAxis: {x: 0, y: 0, z: 1}
+  coreShakeIntensity: 0.02
+  coreShakeSpeed: 15
+  randomizeDirections: 1
+  topGoesRight: 1
+  spinHalvesWhileMoving: 1
+  halvesSpinSpeed: 720
+  halvesSpinAxis: {x: 0, y: 0, z: 1}
+  resetHalvesRotationAfterAttack: 1
+  resetCoreRotationAfterAttack: 1
+  audioSource: {fileID: 0}
+  warningSound: {fileID: 0}
+  splitSound: {fileID: 0}
+  returnSound: {fileID: 0}
+  closeSound: {fileID: 0}
   allowKeyboardTest: 0
 --- !u!23 &970231016794713786
 MeshRenderer:
