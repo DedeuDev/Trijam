@@ -37,9 +37,12 @@ public class PlayerMovement : MonoBehaviour
     private float dashTimer;
     private float dashDirection;
 
+    private Animator animator;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+         animator = GetComponent<Animator>();
 
         rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
     }
@@ -185,10 +188,34 @@ public class PlayerMovement : MonoBehaviour
     {
         moveInput = value.Get<float>();
 
+        Debug.Log(moveInput);
+        
         if (moveInput != 0f)
         {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+            animator.Play("PlayerWalk");
+
             lastMoveDirection = Mathf.Sign(moveInput);
         }
+            else 
+            {
+                
+                animator.Play("Idle");
+            
+            }
+
+            if (moveInput > 0f)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        
+        }
+
+        else
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+
+    
     }
 
     public void OnJump(InputValue value)
