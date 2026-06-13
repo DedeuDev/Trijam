@@ -38,6 +38,10 @@ public class EnemySphereCore : MonoBehaviour
     private void Update()
     {
         MoveParts();
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            ToggleOpen();
+        }
     }
 
     private void MoveParts()
