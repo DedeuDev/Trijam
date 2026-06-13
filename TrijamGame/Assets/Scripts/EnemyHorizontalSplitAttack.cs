@@ -149,13 +149,12 @@ public class EnemyHorizontalSplitAttack : MonoBehaviour
         yield return StartCoroutine(ReturnHalvesToCenter());
 
         isCoreAnimating = false;
+
         ResetCoreVisual();
 
         PlaySound(closeSound);
 
         yield return StartCoroutine(CloseVertically());
-
-        core.gameObject.SetActive(false);
 
         ResetPartsToClosedPosition();
 
@@ -163,6 +162,10 @@ public class EnemyHorizontalSplitAttack : MonoBehaviour
         {
             sphereCore.enabled = true;
             sphereCore.Close();
+        }
+        else
+        {
+            core.gameObject.SetActive(false);
         }
 
         yield return new WaitForSeconds(timeAfterAttack);

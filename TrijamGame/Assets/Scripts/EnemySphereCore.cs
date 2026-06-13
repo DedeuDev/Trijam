@@ -207,11 +207,18 @@ public class EnemySphereCore : MonoBehaviour
         UpdateCoreVisibility();
     }
 
-    private void UpdateCoreVisibility()
+   private void UpdateCoreVisibility()
     {
-        if (!hideCoreWhenClosed) return;
+        if (core == null) return;
 
-        core.gameObject.SetActive(isOpen);
+        if (hideCoreWhenClosed)
+        {
+            core.gameObject.SetActive(isOpen);
+        }
+        else
+        {
+            core.gameObject.SetActive(true);
+        }
     }
 
     private void PlaySound(AudioClip clip)

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -5,23 +6,32 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerDeath : MonoBehaviour
 {
+    public static event Action OnPlayerDied;
+
     [Header("Camera")]
     [SerializeField] private Camera targetCamera;
 
     [Header("Fall Death")]
     [SerializeField] private float bottomLimit = -0.15f;
+
+    [Header("Death Settings")]
+    [SerializeField] private bool restartSceneOnDeath = true;
     [SerializeField] private float restartDelay = 0.6f;
 
     private Rigidbody rb;
     private PlayerMovement playerMovement;
+    private PlayerBounds playerBounds;
     private PlayerInput playerInput;
 
     private bool isDead;
+
+    public bool IsDead => isDead;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         playerMovement = GetComponent<PlayerMovement>();
+        playerBounds = GetComponent<PlayerBounds>();
         playerInput = GetComponent<PlayerInput>();
 
         if (targetCamera == null)
@@ -54,22 +64,43 @@ public class PlayerDeath : MonoBehaviour
 
         isDead = true;
 
+        OnPlayerDied?.Invoke();
+
+        DisablePlayerControl();
+        StopPlayerMovement();
+
+        if (restartSceneOnDeath)
+        {
+            Invoke(nameof(RestartScene), restartDelay);
+        }
+    }
+
+    private void DisablePlayerControl()
+    {
         if (playerMovement != null)
         {
             playerMovement.enabled = false;
+        }
+
+        if (playerBounds != null)
+        {
+            playerBounds.enabled = false;
         }
 
         if (playerInput != null)
         {
             playerInput.enabled = false;
         }
+    }
 
+    private void StopPlayerMovement()
+    {
         Vector3 velocity = GetVelocity();
+
         velocity.x = 0f;
         velocity.z = 0f;
-        SetVelocity(velocity);
 
-        Invoke(nameof(RestartScene), restartDelay);
+        SetVelocity(velocity);
     }
 
     private void RestartScene()
