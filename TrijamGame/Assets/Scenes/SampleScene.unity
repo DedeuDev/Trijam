@@ -427,6 +427,7 @@ GameObject:
   - component: {fileID: 640797130}
   - component: {fileID: 640797134}
   - component: {fileID: 640797129}
+  - component: {fileID: 640797135}
   - component: {fileID: 640797128}
   - component: {fileID: 640797127}
   - component: {fileID: 640797133}
@@ -471,7 +472,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 640797126}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 5480060ec555dea49ac504b37b5a9820, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -630,6 +631,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBounds
   targetCamera: {fileID: 330585545}
   horizontalPadding: 0.5
+--- !u!114 &640797135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640797126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29533c53252d2c447adb88112b09533a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDeath
+  targetCamera: {fileID: 330585545}
+  bottomLimit: -0.15
+  restartDelay: 0.6
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
