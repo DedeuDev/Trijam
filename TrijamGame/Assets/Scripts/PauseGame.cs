@@ -1,4 +1,5 @@
-using UnityEngine;
+ using UnityEngine;
+ using UnityEngine.InputSystem;
 
 public class PauseGame : MonoBehaviour
 {
@@ -6,6 +7,25 @@ public class PauseGame : MonoBehaviour
     public GameObject BaseText;
     public GameObject BackButton;
     public GameObject PauseButton;
+
+    bool isPaused = false;
+    
+
+    void Awake()
+    {
+        
+    }
+
+    void Update()
+    {
+         if (Input.GetKeyDown(KeyCode.Pause))
+        {
+            if (isPaused)
+                OnPause();
+            else
+                OnBack();
+        }
+    }
 
     public void  OnPause()
     {
@@ -15,6 +35,8 @@ public class PauseGame : MonoBehaviour
 
         ScoreText.SetActive(false);
         BaseText.SetActive(false);
+
+        isPaused = true;
     }
 
     public void OnBack()
@@ -25,7 +47,12 @@ public class PauseGame : MonoBehaviour
 
     ScoreText.SetActive(true);
     BaseText.SetActive(true);
+
+    isPaused = false;
 }
+
+
+
 }
 
 

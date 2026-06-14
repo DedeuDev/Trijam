@@ -186,6 +186,7 @@ MonoBehaviour:
   gameOverPanel: {fileID: 1761323413}
   finalScoreText: {fileID: 1185653667}
   bestScoreText: {fileID: 800198984}
+  PauseButton: {fileID: 604872111}
   delayBeforeGameOver: 0.6
   pauseGameOnGameOver: 1
   behavioursToDisable:
@@ -1826,7 +1827,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -3673,7 +3674,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -4522,6 +4523,7 @@ GameObject:
   - component: {fileID: 1761323414}
   - component: {fileID: 1761323416}
   - component: {fileID: 1761323415}
+  - component: {fileID: 1761323417}
   m_Layer: 5
   m_Name: GameOverPanel
   m_TagString: Untagged
@@ -4590,6 +4592,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761323413}
   m_CullTransparentMesh: 1
+--- !u!114 &1761323417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761323413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: 
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1767672291
 GameObject:
   m_ObjectHideFlags: 0
@@ -7000,7 +7032,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2419417568722577687}
-  m_LocalEulerAnglesHint: {x: -58.842, y: -90, z: 90}
+  m_LocalEulerAnglesHint: {x: -85.34331, y: -90, z: 90}
 --- !u!4 &2211905828614133585
 Transform:
   m_ObjectHideFlags: 0
@@ -7015,7 +7047,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2419417568722577687}
-  m_LocalEulerAnglesHint: {x: -53.127, y: -90.449, z: 90.312}
+  m_LocalEulerAnglesHint: {x: -84.152466, y: -90.02486, z: 89.83606}
 --- !u!33 &2231701961183556867
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -7179,7 +7211,7 @@ Transform:
   m_Children:
   - {fileID: 7322263935357222675}
   m_Father: {fileID: 2419417568722577687}
-  m_LocalEulerAnglesHint: {x: 90, y: 90, z: -90}
+  m_LocalEulerAnglesHint: {x: -92.37868, y: 90, z: -90}
 --- !u!1 &2490194676448763881
 GameObject:
   m_ObjectHideFlags: 0
@@ -10176,7 +10208,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2419417568722577687}
-  m_LocalEulerAnglesHint: {x: -55.635, y: 90, z: -90}
+  m_LocalEulerAnglesHint: {x: -89.90241, y: 90, z: -90}
 --- !u!33 &7606134584995958984
 MeshFilter:
   m_ObjectHideFlags: 0

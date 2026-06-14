@@ -12,6 +12,7 @@ public class GameOverManager : MonoBehaviour
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private TMP_Text finalScoreText;
     [SerializeField] private TMP_Text bestScoreText;
+    [SerializeField] private GameObject PauseButton;
 
     [Header("Settings")]
     [SerializeField] private float delayBeforeGameOver = 0.6f;
@@ -60,6 +61,7 @@ public class GameOverManager : MonoBehaviour
         if (gameOverPanel != null)
         {
             gameOverPanel.SetActive(true);
+            PauseButton.SetActive(false);
         }
 
         if (pauseGameOnGameOver)
