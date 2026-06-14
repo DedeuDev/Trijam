@@ -37,6 +37,11 @@ public class PlayerMovement : MonoBehaviour
     private float dashTimer;
     private float dashDirection;
 
+    public AudioSource audioSource;
+    public AudioSource audioJump;
+    public AudioSource audioDash;
+
+
     private Animator animator;
 
     private void Awake()
@@ -69,6 +74,13 @@ public class PlayerMovement : MonoBehaviour
             airDashAvailable = true;
         }
     }
+
+    void PlaySound(AudioClip song)
+    {
+        audioSource.clip = song;
+        audioSource.Play();
+    }
+
 
     private void MovePlayer()
     {
@@ -194,6 +206,7 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
             animator.Play("PlayerWalk");
+            audioSource.Play();
 
             lastMoveDirection = Mathf.Sign(moveInput);
         }
@@ -201,6 +214,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 
                 animator.Play("Idle");
+                audioSource.Stop();
             
             }
 
@@ -225,10 +239,13 @@ public class PlayerMovement : MonoBehaviour
         if (value.isPressed)
         {
             TryJump();
+            audioSource.Stop();
+            audioJump.Play();
         }
         else
         {
             CutJump();
+
         }
     }
 
@@ -237,6 +254,7 @@ public class PlayerMovement : MonoBehaviour
         if (value.isPressed)
         {
             TryStartDash();
+            audioDash.Play();
         }
     }
 

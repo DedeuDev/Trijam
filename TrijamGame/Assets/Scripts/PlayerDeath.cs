@@ -23,6 +23,8 @@ public class PlayerDeath : MonoBehaviour
     private PlayerBounds playerBounds;
     private PlayerInput playerInput;
 
+    public AudioSource audioSource;
+
     private bool isDead;
 
     public bool IsDead => isDead;
@@ -63,6 +65,8 @@ public class PlayerDeath : MonoBehaviour
         if (isDead) return;
 
         isDead = true;
+
+        audioSource.Play();
 
         OnPlayerDied?.Invoke();
 
