@@ -2363,6 +2363,8 @@ MonoBehaviour:
   restartSceneOnDeath: 1
   restartDelay: 0.6
   audioSource: {fileID: 0}
+  BackButton: {fileID: 0}
+  PauseButton: {fileID: 0}
 --- !u!1 &688525139
 GameObject:
   m_ObjectHideFlags: 0
@@ -7696,6 +7698,8 @@ MonoBehaviour:
   restartSceneOnDeath: 0
   restartDelay: 0.6
   audioSource: {fileID: 3087410892476527541}
+  BackButton: {fileID: 376168729}
+  PauseButton: {fileID: 604872111}
 --- !u!114 &3087410892476527539
 MonoBehaviour:
   m_ObjectHideFlags: 0

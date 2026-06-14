@@ -25,6 +25,9 @@ public class PlayerDeath : MonoBehaviour
 
     public AudioSource audioSource;
 
+    public GameObject BackButton;
+    public GameObject PauseButton;
+
     private bool isDead;
 
     public bool IsDead => isDead;
@@ -67,6 +70,11 @@ public class PlayerDeath : MonoBehaviour
         isDead = true;
 
         audioSource.Play();
+
+        Cursor.visible = true;
+
+        Destroy(PauseButton);
+        Destroy(BackButton);
 
         OnPlayerDied?.Invoke();
 

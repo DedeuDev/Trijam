@@ -13,18 +13,23 @@ public class PauseGame : MonoBehaviour
 
     void Awake()
     {
+        Cursor.visible = false;
         
     }
 
     void Update()
     {
-         if (Input.GetKeyDown(KeyCode.Pause))
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+    {
+        if (!isPaused)
         {
-            if (isPaused)
-                OnPause();
-            else
-                OnBack();
+            OnPause();
         }
+        else
+        {
+            OnBack();
+        }
+    }
     }
 
     public void  OnPause()
@@ -35,6 +40,8 @@ public class PauseGame : MonoBehaviour
 
         ScoreText.SetActive(false);
         BaseText.SetActive(false);
+
+        Cursor.visible = true;
 
         isPaused = true;
     }
@@ -47,6 +54,8 @@ public class PauseGame : MonoBehaviour
 
     ScoreText.SetActive(true);
     BaseText.SetActive(true);
+
+    Cursor.visible = false;
 
     isPaused = false;
 }
