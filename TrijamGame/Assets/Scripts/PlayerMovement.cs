@@ -224,7 +224,7 @@ public class PlayerMovement : MonoBehaviour
         
         }
 
-        else
+        else if (moveInput < 0f)
             {
                 transform.rotation = Quaternion.Euler(0, 0, 0);
             }
