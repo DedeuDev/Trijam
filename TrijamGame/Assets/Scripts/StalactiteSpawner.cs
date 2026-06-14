@@ -78,8 +78,9 @@ public class StalactiteSpawner : MonoBehaviour
             SpawnStalactite();
 
             float randomInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
+            float modifiedInterval = DifficultyManager.ApplyInterval(randomInterval);
 
-            yield return new WaitForSeconds(randomInterval);
+            yield return new WaitForSeconds(modifiedInterval); 
         }
     }
 

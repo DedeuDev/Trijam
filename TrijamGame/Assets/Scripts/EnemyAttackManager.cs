@@ -61,7 +61,7 @@ public class EnemyAttackManager : MonoBehaviour
 
     private IEnumerator AttackLoop()
     {
-        yield return new WaitForSeconds(startDelay);
+        yield return new WaitForSeconds(DifficultyManager.ApplyInterval(timeBetweenAttacks));
 
         while (true)
         {

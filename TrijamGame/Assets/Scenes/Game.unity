@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 57155557}
   - component: {fileID: 57155556}
   - component: {fileID: 57155558}
+  - component: {fileID: 57155559}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -190,6 +191,21 @@ MonoBehaviour:
   behavioursToDisable:
   - {fileID: 919132149256020245}
   - {fileID: 3087410892476527536}
+--- !u!114 &57155559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57155555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78493a0f4dc497445a7129a492e007cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DifficultyManager
+  increaseInterval: 5
+  multiplierIncreasePerLevel: 0.25
+  difficultyText: {fileID: 0}
 --- !u!1 &69684434
 GameObject:
   m_ObjectHideFlags: 0
@@ -3147,8 +3163,8 @@ MonoBehaviour:
   maxViewportX: 0.92
   spawnHeightOffset: 1.5
   fixedZPosition: 0
-  minSpawnInterval: 1.2
-  maxSpawnInterval: 2.4
+  minSpawnInterval: 2
+  maxSpawnInterval: 3
   startDelay: 1
   spawnAutomatically: 1
 --- !u!1 &1185653665

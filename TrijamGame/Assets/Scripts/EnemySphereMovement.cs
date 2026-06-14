@@ -57,7 +57,7 @@ public class EnemySphereMovement : MonoBehaviour
             transform.position = Vector3.MoveTowards(
                 transform.position,
                 targetPosition,
-                moveSpeed * Time.deltaTime
+                DifficultyManager.ApplySpeed(moveSpeed) * Time.deltaTime
             );
 
             yield return null;

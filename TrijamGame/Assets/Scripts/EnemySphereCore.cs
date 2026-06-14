@@ -162,7 +162,8 @@ public class EnemySphereCore : MonoBehaviour
         Vector3 targetTopPosition = isOpen ? topOpenPosition : topClosedPosition;
         Vector3 targetBottomPosition = isOpen ? bottomOpenPosition : bottomClosedPosition;
 
-        float currentSpeed = isOpen ? openSpeed : closeSpeed;
+        float baseSpeed = isOpen ? openSpeed : closeSpeed;
+        float currentSpeed = DifficultyManager.ApplySpeed(baseSpeed);
 
         topHalf.localPosition = Vector3.MoveTowards(
             topHalf.localPosition,

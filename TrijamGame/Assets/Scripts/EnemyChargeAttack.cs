@@ -100,7 +100,7 @@ public class EnemyChargeAttack : MonoBehaviour
             transform.position = Vector3.MoveTowards(
                 transform.position,
                 targetPosition,
-                chargeSpeed * Time.deltaTime
+                DifficultyManager.ApplySpeed(chargeSpeed) * Time.deltaTime
             );
 
             yield return null;

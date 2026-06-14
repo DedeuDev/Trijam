@@ -31,7 +31,7 @@ public class Stalactite : MonoBehaviour
         Vector3 velocity = GetVelocity();
 
         velocity.x = 0f;
-        velocity.y = -fallSpeed;
+        velocity.y = -DifficultyManager.ApplySpeed(fallSpeed);
         velocity.z = 0f;
 
         SetVelocity(velocity);

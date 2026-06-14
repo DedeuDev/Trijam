@@ -275,13 +275,13 @@ public class EnemyHorizontalSplitAttack : MonoBehaviour
             topHalf.position = Vector3.MoveTowards(
                 topHalf.position,
                 topTargetWorldPosition,
-                horizontalSpeed * Time.deltaTime
+                DifficultyManager.ApplySpeed(horizontalSpeed) * Time.deltaTime
             );
 
             bottomHalf.position = Vector3.MoveTowards(
                 bottomHalf.position,
                 bottomTargetWorldPosition,
-                horizontalSpeed * Time.deltaTime
+                DifficultyManager.ApplySpeed(horizontalSpeed) * Time.deltaTime
             );
 
             yield return null;
@@ -305,13 +305,13 @@ public class EnemyHorizontalSplitAttack : MonoBehaviour
             topHalf.localPosition = Vector3.MoveTowards(
                 topHalf.localPosition,
                 topOpenLocalPosition,
-                returnSpeed * Time.deltaTime
+                DifficultyManager.ApplySpeed(returnSpeed) * Time.deltaTime
             );
 
             bottomHalf.localPosition = Vector3.MoveTowards(
                 bottomHalf.localPosition,
                 bottomOpenLocalPosition,
-                returnSpeed * Time.deltaTime
+                DifficultyManager.ApplySpeed(returnSpeed) * Time.deltaTime
             );
 
             yield return null;
